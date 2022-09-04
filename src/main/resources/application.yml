@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+    default: dev
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: USERS
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+
+
+header-missing-value: "Required Headers are missing (x-correleation-id & Country)"
