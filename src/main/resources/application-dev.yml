@@ -18,9 +18,20 @@ spring:
     open-in-view: true
     generate-ddl: true
     hibernate:
-      ddl-auto: 'update'
+      ddl-auto: update
 
 management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
   endpoint:
     health:
       show-details: ALWAYS
+
+springdoc:
+  swagger-ui:
+    path: "/api/users/swagger/swagger-ui.html"
+  api-docs:
+    path: "/api/users/v3/api-docs"

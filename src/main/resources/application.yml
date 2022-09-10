@@ -13,5 +13,5 @@ eureka:
     enabled: true
     register-with-eureka: true
 
-
+application.version: @project.version@
 header-missing-value: "Required Headers are missing (x-correleation-id & Country)"
