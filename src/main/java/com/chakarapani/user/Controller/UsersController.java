@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+import static com.chakarapani.base.Constants.Constants.GATEWAYURL;
+
 @RestController
 @RequestMapping("/api/users")
 @SuppressWarnings("unused")
+@CrossOrigin(value = GATEWAYURL)
 public class UsersController {
 
 	@Autowired
