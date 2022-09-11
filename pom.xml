@@ -106,6 +106,19 @@
         </dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>releases</name>
+            <url>http://localhost:9999/repository/maven-ideaj-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>snapshots</name>
+            <url>http://localhost:9999/repository/maven-ideaj-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
