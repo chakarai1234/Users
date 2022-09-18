@@ -1,20 +1,13 @@
-server:
-  port: 8080
-  error:
-    include-message: ALWAYS
-
 spring:
   datasource:
-    url: jdbc:h2:file:~/Documents/Codes/Java/Spring Boot/training/H2_Storage/users
-    username: sa
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/microservices
+    username: chakarai1234
     password: password
-    driverClassName: org.h2.Driver
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: false
   jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: true
     generate-ddl: true
     hibernate:
@@ -26,12 +19,3 @@ management:
       exposure:
         include:
           - "*"
-  endpoint:
-    health:
-      show-details: ALWAYS
-
-springdoc:
-  swagger-ui:
-    path: "/api/users/swagger/swagger-ui.html"
-  api-docs:
-    path: "/api/users/v3/api-docs"

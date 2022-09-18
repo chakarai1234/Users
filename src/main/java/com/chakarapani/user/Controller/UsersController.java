@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-import static com.chakarapani.base.Constants.Constants.GATEWAYURL;
+import static com.chakarapani.base.Constants.Constants.*;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping(USERSPATH)
 @SuppressWarnings("unused")
 @CrossOrigin(value = GATEWAYURL)
 public class UsersController {
@@ -27,13 +27,12 @@ public class UsersController {
 
 	@GetMapping("/all")
 	@ApiResponses(value = {
-			@ApiResponse(description = "Success", useReturnTypeSchema = true, responseCode = "200",
-					content = @Content(mediaType = "application/json"))
+			@ApiResponse(description = SUCCESSMESSAGE, useReturnTypeSchema = true, responseCode = RESPONSE200,
+					content = @Content(mediaType = CONTENTTYPE))
 	})
 	@Parameters(value = {
-			@Parameter(name = "x-correlation-id", in = ParameterIn.HEADER, required = true,
-					example = "c4690ee8-f3f5-4a68-b08d-a7ecdf8fb851"),
-			@Parameter(name = "country", in = ParameterIn.HEADER, required = true, example = "SG")
+			@Parameter(name = HEADERCORRELEATIONTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCORRELATIONEXAMPLE),
+			@Parameter(name = HEADERCOUNTRYTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCOUNTRYEXAMPLE)
 	})
 	public ResponseEntity<Object> getAllUsers(@RequestHeader Map<String, String> headers) {
 		return usersService.getAllUsers(headers);
@@ -41,13 +40,12 @@ public class UsersController {
 
 	@PostMapping("/save")
 	@ApiResponses(value = {
-			@ApiResponse(description = "Success", useReturnTypeSchema = true, responseCode = "200",
-					content = @Content(mediaType = "application/json"))
+			@ApiResponse(description = SUCCESSMESSAGE, useReturnTypeSchema = true, responseCode = RESPONSE200,
+					content = @Content(mediaType = CONTENTTYPE))
 	})
 	@Parameters(value = {
-			@Parameter(name = "x-correlation-id", in = ParameterIn.HEADER, required = true,
-					example = "c4690ee8-f3f5-4a68-b08d-a7ecdf8fb851"),
-			@Parameter(name = "country", in = ParameterIn.HEADER, required = true, example = "SG")
+			@Parameter(name = HEADERCORRELEATIONTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCORRELATIONEXAMPLE),
+			@Parameter(name = HEADERCOUNTRYTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCOUNTRYEXAMPLE)
 	})
 	public ResponseEntity<Object> saveUser(@RequestHeader Map<String, String> headers, @RequestBody Users user) {
 		return usersService.saveUser(headers, user);
@@ -55,43 +53,38 @@ public class UsersController {
 
 	@GetMapping("/user")
 	@ApiResponses(value = {
-			@ApiResponse(description = "Success", useReturnTypeSchema = true, responseCode = "200",
-					content = @Content(mediaType = "application/json"))
+			@ApiResponse(description = SUCCESSMESSAGE, useReturnTypeSchema = true, responseCode = RESPONSE200,
+					content = @Content(mediaType = CONTENTTYPE))
 	})
 	@Parameters(value = {
-			@Parameter(name = "x-correlation-id", in = ParameterIn.HEADER, required = true,
-					example = "c4690ee8-f3f5-4a68-b08d-a7ecdf8fb851"),
-			@Parameter(name = "country", in = ParameterIn.HEADER, required = true, example = "SG")
+			@Parameter(name = HEADERCORRELEATIONTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCORRELATIONEXAMPLE),
+			@Parameter(name = HEADERCOUNTRYTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCOUNTRYEXAMPLE)
 	})
-	public ResponseEntity<Object> getUserByUserName(@RequestHeader Map<String, String> headers,
-	                                                @RequestParam("username") String username) {
+	public ResponseEntity<Object> getUserByUserName(@RequestHeader Map<String, String> headers, @RequestParam("username") String username) {
 		return usersService.getUserByUserName(headers, username);
 	}
 
 	@GetMapping("/email")
 	@ApiResponses(value = {
-			@ApiResponse(description = "Success", useReturnTypeSchema = true, responseCode = "200",
-					content = @Content(mediaType = "application/json"))
+			@ApiResponse(description = SUCCESSMESSAGE, useReturnTypeSchema = true, responseCode = RESPONSE200,
+					content = @Content(mediaType = CONTENTTYPE))
 	})
 	@Parameters(value = {
-			@Parameter(name = "x-correlation-id", in = ParameterIn.HEADER, required = true,
-					example = "c4690ee8-f3f5-4a68-b08d-a7ecdf8fb851"),
-			@Parameter(name = "country", in = ParameterIn.HEADER, required = true, example = "SG")
+			@Parameter(name = HEADERCORRELEATIONTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCORRELATIONEXAMPLE),
+			@Parameter(name = HEADERCOUNTRYTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCOUNTRYEXAMPLE)
 	})
-	public ResponseEntity<Object> getUserByEmail(@RequestHeader Map<String, String> headers,
-	                                             @RequestParam("email") String email) {
+	public ResponseEntity<Object> getUserByEmail(@RequestHeader Map<String, String> headers, @RequestParam("email") String email) {
 		return usersService.getUserByEmail(headers, email);
 	}
 
 	@DeleteMapping("/user")
 	@ApiResponses(value = {
-			@ApiResponse(description = "Success", useReturnTypeSchema = true, responseCode = "200",
-					content = @Content(mediaType = "application/json"))
+			@ApiResponse(description = SUCCESSMESSAGE, useReturnTypeSchema = true, responseCode = RESPONSE200,
+					content = @Content(mediaType = CONTENTTYPE))
 	})
 	@Parameters(value = {
-			@Parameter(name = "x-correlation-id", in = ParameterIn.HEADER, required = true,
-					example = "c4690ee8-f3f5-4a68-b08d-a7ecdf8fb851"),
-			@Parameter(name = "country", in = ParameterIn.HEADER, required = true, example = "SG")
+			@Parameter(name = HEADERCORRELEATIONTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCORRELATIONEXAMPLE),
+			@Parameter(name = HEADERCOUNTRYTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCOUNTRYEXAMPLE)
 	})
 	public ResponseEntity<Object> deleteUserByUserName(@RequestHeader Map<String, String> headers,
 	                                                   @RequestParam("username") String username) {
@@ -100,13 +93,12 @@ public class UsersController {
 
 	@DeleteMapping("/clear")
 	@ApiResponses(value = {
-			@ApiResponse(description = "Success", useReturnTypeSchema = true, responseCode = "200",
-					content = @Content(mediaType = "application/json"))
+			@ApiResponse(description = SUCCESSMESSAGE, useReturnTypeSchema = true, responseCode = RESPONSE200,
+					content = @Content(mediaType = CONTENTTYPE))
 	})
 	@Parameters(value = {
-			@Parameter(name = "x-correlation-id", in = ParameterIn.HEADER, required = true,
-					example = "c4690ee8-f3f5-4a68-b08d-a7ecdf8fb851"),
-			@Parameter(name = "country", in = ParameterIn.HEADER, required = true, example = "SG")
+			@Parameter(name = HEADERCORRELEATIONTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCORRELATIONEXAMPLE),
+			@Parameter(name = HEADERCOUNTRYTITLE, in = ParameterIn.HEADER, required = true, example = HEADERCOUNTRYEXAMPLE)
 	})
 	public ResponseEntity<Object> deleteAllUsers(@RequestHeader Map<String, String> headers) {
 		return usersService.deleteAllUsers(headers);
