@@ -21,10 +21,10 @@ public class UserApplication {
 
 	@Bean
 	public OpenAPI customOpenAPI(@Value("${application.version}") String applicationVersion) {
-		return new OpenAPI().info(
-				new Info().title("Users Microservice").description("Micro service that handles " + "users information")
-						.version(applicationVersion)
-						.contact(new Contact().name("Srinivasan Chakarapani").email("developer@email.com")));
+		return new OpenAPI().info(new Info().title("Users Microservice")
+				.description("Micro service that handles users information")
+				.version(applicationVersion).contact(
+						new Contact().name("Srinivasan Chakarapani").email("developer@email.com")));
 	}
 
 }

@@ -1,3 +1,8 @@
+server:
+  port: 8080
+  error:
+    include-message: ALWAYS
+
 spring:
   profiles:
     active: dev
@@ -6,7 +11,7 @@ spring:
     ansi:
       enabled: ALWAYS
   application:
-    name: USERS
+    name: ms-users
 
 eureka:
   client:
@@ -14,4 +19,9 @@ eureka:
     register-with-eureka: true
 
 application.version: @project.version@
-header-missing-value: "Required Headers are missing (x-correleation-id & Country)"
+
+springdoc:
+  swagger-ui:
+    path: "/api/users/swagger/swagger-ui.html"
+  api-docs:
+    path: "/api/users/v3/api-docs"
